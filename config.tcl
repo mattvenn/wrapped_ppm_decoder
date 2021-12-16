@@ -9,16 +9,16 @@ set ::env(VERILOG_FILES) "$::env(DESIGN_DIR)/wrapper.v \
     $::env(DESIGN_DIR)/PPM-FPGA-to-ASIC-WMX/Decoder_8Ch/src/verilog/Module_Decoder_8Ch_ASIC.v"
 
 # target density, change this if you can't get your design to fit
-set ::env(FP_CORE_UTIL) 45
-set ::env(PL_TARGET_DENSITY) [ expr ($::env(FP_CORE_UTIL)+5) / 100.0 ]
-#set ::env(PL_TARGET_DENSITY) 0.4
+#set ::env(FP_CORE_UTIL) 45
+#set ::env(PL_TARGET_DENSITY) [ expr ($::env(FP_CORE_UTIL)+5) / 100.0 ]
+set ::env(PL_TARGET_DENSITY) 0.4
 
 # don't put clock buffers on the outputs, need tristates to be the final cells
 set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
 
 # set absolute size of the die to 300 x 300 um
-#set ::env(DIE_AREA) "0 0 250 250"
-#set ::env(FP_SIZING) absolute
+set ::env(DIE_AREA) "0 0 100 250"
+set ::env(FP_SIZING) absolute
 
 # define number of IO pads
 set ::env(SYNTH_DEFINES) "MPRJ_IO_PADS=38"
