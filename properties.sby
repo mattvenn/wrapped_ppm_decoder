@@ -1,0 +1,14 @@
+[options]
+mode prove
+
+[engines]
+smtbmc
+
+[script]
+read -formal wrapper.v Module_Decoder_8Ch_ASIC.v
+prep -top wrapped_ppm_decoder
+
+[files]
+wrapper.v
+properties.v
+PPM-FPGA-to-ASIC-WMX/Decoder_8Ch/src/verilog/Module_Decoder_8Ch_ASIC.v

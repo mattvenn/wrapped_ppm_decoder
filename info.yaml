@@ -1,0 +1,42 @@
+--- 
+# information
+project: 
+  title: "PPM Decoder"
+  description: "Fuentes Codificador PPM configurable"
+  picture: docs/01_Module_Decoder_8Ch.png
+  author: "jospicant"
+  license: LICENSE
+  waive_caravel: "no caravel test"
+  waive_module_test: "no module test"
+
+# optional interfaces you want to use: gpio, la1, la2, la3, irq, clk2 & wishbone
+interfaces: ['gpio']
+
+# test within caravel
+caravel_test:
+  id: 3
+  module_name: "wrapped_ppm_decoder"
+
+# module test
+module_test:
+
+# run the wrapper formal proof
+wrapper_proof:
+  directory: "."
+  sby: "properties.sby"
+
+# openlane config, used in case I need to re-harden
+openlane:
+  config: "config.tcl"
+
+# source required for various configs and module instantiation
+source:
+    - wrapper.v
+    - PPM-FPGA-to-ASIC-WMX/Coder_4_8_Ch/src/verilog/PPM_Coder_v2.1.v
+
+# gds - check nothing on metal 5, DRC & LVS
+gds:
+  directory: "gds"
+  gds_filename: "wrapped_ppm_decoder.gds"
+  lvs_filename: "wrapped_ppm_decoder.lvs.powered.v"
+  lef_filename: "wrapped_ppm_decoder.lef"
