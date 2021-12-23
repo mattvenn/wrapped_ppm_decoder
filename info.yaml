@@ -32,7 +32,7 @@ openlane:
 # source required for various configs and module instantiation
 source:
     - wrapper.v
-    - PPM-FPGA-to-ASIC-WMX/Coder_4_8_Ch/src/verilog/PPM_Coder_v2.1.v
+    - src/Module_Decoder_8Ch_ASIC.v
 
 # gds - check nothing on metal 5, DRC & LVS
 gds:
